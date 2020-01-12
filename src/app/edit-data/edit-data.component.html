@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-header card-header-icon card-header-warning">
+    <div class="card-icon">
+      <i class="material-icons"> visibility </i>
+    </div>
+      <h1 class="card-title" mat-dialog-title>Edit_Entité</h1> 
+  </div>
+    <div class="card-body">
+      <mat-dialog-content class="accent-color">
+  
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+                  
+              <tr > <th> Type</th> <th *ngFor="let item of data | keyvalue" >{{this.item.key}}</th>  </tr>
+  
+              <tr ><th>Nouvelles valeurs</th> <td *ngFor="let item of data | keyvalue">{{this.item.value}}</td>   </tr>
+              <tr><th>Anciennes valeurs</th> <td *ngFor="let item of data | keyvalue">  <span contenteditable="true" >{{this.item.value}}</span> </td> </tr>
+            </table>
+          </div>
+      </mat-dialog-content>
+  </div>
+</div>
+<mat-dialog-actions>
+  <button  mat-raised-button class="btn btn-default" mat-dialog-close>annuler</button>
+  <button  mat-raised-button class="btn btn-success" [mat-dialog-close]="true" onclick="showNotification('top','right')" (click)="Submit()">confirmer</button>
+</mat-dialog-actions> 

@@ -1,0 +1,35 @@
+<div class="main-content">
+<div class="card">
+        <div class="card-header card-header-danger" >
+          <h4 class="card-title">liste des données</h4>
+        
+        </div>
+        <div class="card-content table-responsive table-full-width">
+          <table class="table">
+            <thead class="text-danger">
+              <th>Numéro_Dossier</th>
+              <th>reglémentation</th>
+              <th>libellé_long</th>
+              <th>libellé_court</th>
+              <th>Statut</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let x of Rendu ">
+             <td>{{x.NUDOSS}}</td> 
+             <td>{{x.SOCDOS}}</td>
+             <td>{{x.LIBLON}}</td>
+             <td>{{x.LIBABR}}</td>
+             <th class="text-success">{{x.statut}}</th>
+             <td><i class="material-icons" matTooltip="visualiser plus d'information" [matTooltipPosition]="'above'" (click)="openDialog(x.id)">list </i>
+            </tr>
+            
+              
+            
+          </tbody>
+        </table>
+      
+         
+        </div>
+      
+      </div>
+</div>

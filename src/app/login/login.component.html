@@ -1,0 +1,53 @@
+<div [@routerTransition]>
+<div class="centrage">
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{roles}}.
+</div>
+
+<ng-template #loggedOut>
+  <div>  </div>
+  <div class="card" class="center-block" id="bloc" >
+      <mat-card>
+          <mat-card-header> 
+            <mat-card-title> 
+              <div layout="row" layout-align="start center" flex>
+               <img src="../../../assets/img/soprahh.png" style='width:200px;' class="center"> 
+              </div>
+              </mat-card-title>
+           
+              </mat-card-header>
+          <mat-card-content>
+            
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required />
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          
+        </div>
+      </div>
+      <div class="form-group" style="text-align: center;">
+        <button class="btn btn-danger" >Login</button>
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+          Login failed: {{errorMessage}}
+        </div>
+      </div>
+    </form>
+    <hr />
+  </mat-card-content>
+ </mat-card>
+ 
+  </div>
+</ng-template>
+</div>
+</div>

@@ -1,0 +1,69 @@
+<div [@routerTransition]>
+  <div class="centrage">
+    <div class="main-content">
+      <form [formGroup]="addnameForm"  novalidate>
+        <div *ngIf="currentFileUpload" class="progress">
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar"
+            attr.aria-valuenow="{{progress.percentage}}" aria-valuemin="0" aria-valuemax="100"
+            [ngStyle]="{width:progress.percentage+'%'}">
+            {{progress.percentage}}%
+          </div>
+        </div>
+
+        <label class="btn btn-light">
+          <input type="file" (change)="selectFile($event)">
+
+        </label>
+        <div class="centrage" style="text-align: center">
+          <mat-form-field class="tp-full-width centrage" >
+            <input matInput type="text" #name class="form-control hello" placeholder="Nom du fichier" id="name" 
+              formControlName="name">
+            <mat-error *ngIf="addnameForm.hasError('required')">
+              name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <!-- (click)="upload()" -->
+        <button mat-raised-button class="btn btn-danger mat-button-toggle-label "
+          [disabled]="!selectedFiles && !addnameForm.valid" onclick="showNotification('top','right')"
+          (click)="upload()">Importer</button>
+      </form>
+      <br><br><br>
+      <div class="card">
+        <div class="card-header card-header-danger">
+          <h4 class="card-title">liste des données</h4>
+
+        </div>
+        <div class="card-content table-responsive table-full-width">
+          <table mat-table class="table">
+            <thead class="text-danger">
+              <th>Numéro_Dossier</th>
+              <th>reglémentation</th>
+              <th>libellé_long</th>
+              <th>libellé_court</th>
+
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of dataLi  | paginate:{ itemsPerPage: 10, currentPage: p } ; let i = index">
+
+                <!-- <tr *ngFor="let x of dataLi ; let i = index"> -->
+
+                <td>{{x.NUDOSS}}</td>
+                <td>{{x.SOCDOS}}</td>
+                <td>{{x.LIBLON}}</td>
+                <td>{{x.LIBABR}}</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+          <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  </div>

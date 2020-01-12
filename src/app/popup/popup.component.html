@@ -1,0 +1,32 @@
+
+<div class="card">
+  <div class="card-header card-header-icon card-header-warning">
+    <div class="card-icon">
+      <i class="material-icons"> visibility </i>
+    </div>
+    <h1 class="card-title" mat-dialog-title>Entité</h1> 
+  </div>
+  <div class="card-body">
+      <mat-dialog-content class="accent-color">
+
+          <div class="card-content table-responsive table-full-width">
+              <table class="table">
+                
+                  <tr > <th> Type</th> <th *ngFor="let item of data.dataF | keyvalue" >{{this.item.key}}</th>  </tr>
+
+                  <tr ><th>Nouvelles valeurs</th> <td *ngFor="let item of data.dataF | keyvalue">{{this.item.value}}</td>   </tr>
+                  <tr><th>Anciennes valeurs</th>  <td *ngFor="let ite of data.dataH | keyvalue">{{this.ite.value}} </td></tr>
+                </table>
+               </div>
+                
+
+      </mat-dialog-content>
+  </div>
+</div>
+ <mat-dialog-actions>
+   <i class="material-icons" id="add"  matTooltip="Ajouter cette information" [matTooltipPosition]="'above'"  (click)="openDialog()">
+     add_circle
+    </i> <br> <br> <br>
+      <i class="material-icons" id="edit" matTooltip="modifier cette information" [matTooltipPosition]="'above'"  (click)="editPatch()">edit</i>
+      <button  mat-raised-button class="btn btn-default" mat-dialog-close>annuler</button>
+  </mat-dialog-actions>

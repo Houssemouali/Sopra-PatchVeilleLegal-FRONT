@@ -1,0 +1,28 @@
+<div [@routerTransition]>
+<div class="main-content">
+    <div class="card">
+        <div class="card-header card-header-danger" >
+          <h4 class="card-title">Historique des actions</h4>
+        
+        </div>
+        <div class="card-content table-responsive table-full-width">
+          <table class="table" >
+            <thead class="text-danger">
+              <th>Nom Consultant</th>
+              <th>Date</th>
+              <th>Nom du Patch</th>
+              <th>Action</th>
+            </thead>
+            <tbody>
+            <tr *ngFor="let user of users2 ; let i = index">
+                <td>{{user.userName}}</td>
+                <td>{{user.date| date:'EEEE, d,MMMM, y, hh:mm:ss a Z '}}</td>
+                <td>{{user.nom_Fichier}}</td>
+                <td>{{user.type}}</td>
+            </tr>
+            </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,36 @@
+.monBoutton {
+    background-color: #f44336;
+    Color:white;
+    font-weight: bold;
+    padding: 10px 40px;
+    border-radius: 3px;
+    cursor: pointer; 
+    box-shadow: 0 8px 16px 0 rgb(214, 211, 211);
+    text-decoration: none;
+  }
+  .centrage {text-align: center;}
+  .example-form {
+    min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  }
+  .mat-button-toggle-label {
+    display: inline;
+  }
+  .my-pagination /deep/ .ngx-pagination .current {
+    background: rgb(243, 12, 12);
+  }
+  ::ng-deep .mat-input{
+    width:150px !important;
+  }
+  .hello::ng-deep .mat-input{
+    width:400px !important;
+  }
+  .tp-full-width {
+    width: 20%;
+ }
+
+::ng-deep .mat-form-field {
+    margin-left: 27rem;
+    width: calc(100% - 27rem);
+}

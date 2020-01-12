@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-header card-header-icon card-header-danger">
+        <div class="card-icon">
+          <i class="material-icons"> warning </i>
+        </div>
+      <h1 class="card-title" mat-dialog-title>Confirmation</h1>
+      
+  </div>
+  <div class="card-body">
+      <mat-dialog-content class="accent-color">
+
+     Voulez-vous vraiment continuer cette procédure ?
+
+      </mat-dialog-content>
+
+  </div>
+
+</div>
+<mat-dialog-actions>
+    
+  <button  mat-raised-button class="btn btn-default" mat-dialog-close>annuler</button>
+  <button  mat-raised-button class="btn btn-success" [mat-dialog-close]="true" onclick="showNotification('top','right')"  (click)="createPatch()">confirmer</button>
+
+ </mat-dialog-actions>
+

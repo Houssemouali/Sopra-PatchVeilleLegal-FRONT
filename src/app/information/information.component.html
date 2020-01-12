@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header card-header-icon card-header-warning">
+    <div class="card-icon">
+      <i class="material-icons"> visibility </i>
+    </div>
+    <h1 class="card-title" mat-dialog-title>Entité</h1> 
+  </div>
+  <div class="card-body">
+      <mat-dialog-content class="accent-color">
+
+          <div class="card-content table-responsive table-full-width">
+              <table class="table">
+                
+                  <tr > <th> Type</th> <th *ngFor="let item of data | keyvalue" >{{this.item.key}}</th>  </tr>
+
+                  <tr ><th>Valeurs</th> <td *ngFor="let item of data | keyvalue">{{this.item.value}}</td>   </tr>
+                  
+                </table>
+               </div>
+                
+
+      </mat-dialog-content>
+  </div>
+</div>
+ <mat-dialog-actions>
+    
+      <button  mat-raised-button class="btn btn-default" mat-dialog-close>annuler</button>
+ </mat-dialog-actions>

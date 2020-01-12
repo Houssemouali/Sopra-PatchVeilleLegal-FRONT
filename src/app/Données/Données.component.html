@@ -1,0 +1,80 @@
+<div [@routerTransition]>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">liste des nouvelles données</h4>
+
+          </div>
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+              <thead class="text-danger">
+                <th>Code</th>
+                <th>Modele</th>
+                <th>libellé_long</th>
+                <th>libellé_court</th>
+              </thead>
+              <tbody>
+                  <!-- | paginate:{ itemsPerPage: 10, currentPage: p } -->
+                <tr *ngFor="let x of dataLi; let h of dataHra ">
+                  <td>{{x.NUDOSS}}</td>
+                  <td>{{x.SOCDOS}}</td>
+                  <td>{{x.LIBLON}}</td>
+                  <td>{{x.LIBABR}}</td>
+                  <td><i class="material-icons" matTooltip="visualiser plus d'information"
+                      [matTooltipPosition]="'above'" (click)="openDialog(x.id)">
+                      list
+                    </i></td>
+
+                </tr>
+              </tbody>
+            </table>
+            <!-- <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls> -->
+
+
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">liste des anciennes données</h4>
+
+          </div>
+          <div class="card-content table-responsive table-full-width">
+            <table class="table">
+              <thead class="text-danger">
+                <th>Code</th>
+                <th>Modele</th>
+                <th>libellé_long</th>
+                <th>libellé_court</th>
+              </thead>
+              <tbody *ngIf="!dataHra || dataHra.length === 0">
+                <tr *ngFor="let x of dataLi ; let i = index ">
+                  <td> ... </td>
+                  <td>...</td>
+                  <td> ... </td>
+                  <td>...</td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="dataHra | paginate:{ itemsPerPage: 10, currentPage: p }">
+                <tr *ngFor="let h of dataHra">
+                  <td>{{h.CDCODE}}</td>
+                  <td>{{h.CDREGL}}</td>
+                  <td>{{h.LIBLON}}</td>
+                  <td>{{h.LIBABR}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
